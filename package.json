@@ -1,5 +1,6 @@
 {
   "name": "tic_tac_toe",
+  "title": "Tic Tac Toe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
