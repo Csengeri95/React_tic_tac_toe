@@ -1,3 +1,10 @@
+.gameboard-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
 .gameboard {
     display: grid;
     width: 500px;
