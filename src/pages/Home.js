@@ -3,6 +3,7 @@ import Gameboard from "../components/Gameboard";
 import "../styles/Home.css"
 import { Button } from 'antd'
 import Modal from "../components/Modal";
+import Logo from '../assets/logo-removebg.png'
 
 export default function Home() {
 
@@ -10,7 +11,14 @@ export default function Home() {
 
     return (
         <div className="home">
-            <Button className="new_game_button" type="primary" size="large" danger onClick={() => setOpen(true)} >
+            <img src={Logo} title="gameLogo" alt="gameLogo" />
+            <Button
+                className="new_game_button"
+                type="primary"
+                size="large"
+                danger
+                onClick={() => setOpen(true)}
+            >
                 Új játék!
             </Button>
 

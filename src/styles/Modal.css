@@ -1,0 +1,33 @@
+.centered_modal .ant-modal-header .ant-modal-title {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.ant-form-item-label label {
+    font-size: 1.5rem;
+}
+
+.ant-modal-footer button {
+    font-size: 1rem;
+}
+
+.description {
+    text-align: center;
+}
+
+.description p:nth-child(1) {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.description p:nth-child(2) {
+    color: #E49B0F;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.8px;
+}
+
+.select_wrapper {
+    display: flex;
+    justify-content: center;
+}
