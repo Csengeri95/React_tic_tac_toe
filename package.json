@@ -1,6 +1,6 @@
 {
   "name": "tic_tac_toe",
-  "title": "Tic Tac Toe",
+  "title": "Amőba",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,7 +13,7 @@
     "antd": "^5.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router": "^6.11.2",
+    "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

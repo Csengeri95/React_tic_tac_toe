@@ -9,9 +9,14 @@ export default function Home() {
 
     const [open, setOpen] = useState(false)
 
+
     return (
         <div className="home">
-            <img src={Logo} title="gameLogo" alt="gameLogo" />
+            <img
+                src={Logo}
+                title="Logo"
+                alt="Logo"
+            />
             <Button
                 className="new_game_button"
                 type="primary"
@@ -22,8 +27,13 @@ export default function Home() {
                 Új játék!
             </Button>
 
-            <Modal open={open} setOpen={setOpen} />
-            {/* <Gameboard /> */}
+            <Modal
+                open={open}
+                setOpen={setOpen}
+
+
+            />
+
         </div>
     )
 }

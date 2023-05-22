@@ -1,13 +1,8 @@
-.home {
-    height: 100vh;
+.game {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     background-color: #51d0de;
-}
-
-.home .new_game_button {
-    font-size: 18px !important;
-    margin-bottom: 1rem;
 }

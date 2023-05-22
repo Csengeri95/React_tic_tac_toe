@@ -59,7 +59,6 @@ export default function Square({ id, players, shape, setShape, setSquare, square
 
     }
 
-    console.log(square)
     return (
         <div className="square" id={id} onClick={handleClick}  >
             <div className="cell" style={{ color: square[id].symbolColor }}  >

@@ -2,26 +2,22 @@ import { Button, Modal, Select, Form, Input } from 'antd'
 import { Select as MantineSelect, Text, Avatar, Group } from '@mantine/core'
 import "../styles/Modal.css"
 import { symbolData, colorData, boardSizeOptions } from '../utils/Constants'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
+import { GameSettingsContext } from '../contexts/GameSettingsContexts'
+import { useNavigate } from 'react-router-dom'
 
 export default function ModalDiv({ open, setOpen }) {
 
     const [form] = Form.useForm();
     const formRef = useRef(null)
-    const [player1Name, setPlayer1Name] = useState(undefined)
-    const [player2Name, setPlayer2Name] = useState(undefined)
-    const [selectedSymbol1, setSelectedSymbol1] = useState(undefined)
-    const [selectedSymbol2, setSelectedSymbol2] = useState(undefined)
-    const [selectedColor1, setSelectedColor1] = useState('#000000')
-    const [selectedColor2, setSelectedColor2] = useState('#000000')
-    const [selectedBoardSize, setSelectedBoardSize] = useState(100)
+    const navigate = useNavigate()
+    const { gameSettings, setGameSettings } = useContext(GameSettingsContext)
 
+    const filteredSymbolData1 = symbolData.filter(a => a.value != gameSettings.selectedSymbol2)
+    const filteredSymbolData2 = symbolData.filter(a => a.value != gameSettings.selectedSymbol1)
 
-    const filteredSymbolData1 = symbolData.filter(a => a.value != selectedSymbol2)
-    const filteredSymbolData2 = symbolData.filter(a => a.value != selectedSymbol1)
-
-    const filteredColor1 = colorData.filter(a => a.value != selectedColor2)
-    const filteredColor2 = colorData.filter(a => a.value != selectedColor1)
+    const filteredColor1 = colorData.filter(a => a.value != gameSettings.selectedColor2)
+    const filteredColor2 = colorData.filter(a => a.value != gameSettings.selectedColor1)
 
     const SelectItem = React.forwardRef(({ image, label, description, ...others }, ref) => (
         <div ref={ref} {...others}>
@@ -40,9 +36,15 @@ export default function ModalDiv({ open, setOpen }) {
 
 
     function onFinish(values) {
-        console.log(values)
+        // console.log(values)
+        setGameSettings({
+            ...gameSettings,
+            player1Name: values.player1Name,
+            player2Name: values.player2Name
+        });
         setOpen(false)
-        
+        navigate('/Game')
+
     }
 
     function onReset() {
@@ -120,7 +122,7 @@ export default function ModalDiv({ open, setOpen }) {
                                 <Select
                                     placeholder="Válasszon szimbólumot!"
                                     options={filteredSymbolData1}
-                                    onChange={(value) => setSelectedSymbol1(value)}
+                                    onChange={(value) => setGameSettings({ ...gameSettings, selectedSymbol1: value })}
                                 />
                             </Form.Item>
 
@@ -130,7 +132,7 @@ export default function ModalDiv({ open, setOpen }) {
                                     placeholder='Választhat egy színt!'
                                     itemComponent={SelectItem}
                                     data={filteredColor1}
-                                    onChange={(value) => setSelectedColor1(value)}
+                                    onChange={(value) => setGameSettings({ ...gameSettings, selectedColor1: value })}
                                 />
                             </Form.Item>
                         </div>
@@ -157,7 +159,7 @@ export default function ModalDiv({ open, setOpen }) {
                                 <Select
                                     placeholder="Válasszon szimbólumot!"
                                     options={filteredSymbolData2}
-                                    onChange={(value) => setSelectedSymbol2(value)}
+                                    onChange={(value) => setGameSettings({ ...gameSettings, selectedSymbol2: value })}
                                 />
                             </Form.Item>
 
@@ -167,7 +169,7 @@ export default function ModalDiv({ open, setOpen }) {
                                     placeholder='Választhat egy színt!'
                                     itemComponent={SelectItem}
                                     data={filteredColor2}
-                                    onChange={(value) => setSelectedColor2(value)}
+                                    onChange={(value) => setGameSettings({ ...gameSettings, selectedColor2: value })}
 
                                 />
                             </Form.Item>
@@ -184,7 +186,7 @@ export default function ModalDiv({ open, setOpen }) {
                             <Select
                                 placeholder='Választhat háló méretet!'
                                 options={boardSizeOptions}
-                                onChange={(value) => setSelectedBoardSize(value)}
+                                onChange={(value) => setGameSettings({ ...gameSettings, selectedBoardSize: value })}
                             />
                         </Form.Item>
                     </div>

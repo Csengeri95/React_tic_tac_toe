@@ -1,28 +1,29 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "../styles/Gameboard.css"
 import Square from "./Square"
-
+import { GameSettingsContext } from "../contexts/GameSettingsContexts"
 
 export default function Gameboard() {
 
     const [square, setSquare] = useState(Array(100).fill(""))
     //const [shape, setShape] = useState("O")
 
+    const { gameSettings } = useContext(GameSettingsContext)
+
     const players = {
         first: {
-            name: "Anna",
-            symbol: "O",
-            style: "red"
+            name: gameSettings.player1Name,
+            symbol: gameSettings.selectedSymbol1,
+            style: gameSettings.selectedColor1
         },
         second: {
-            name: "Levente",
-            symbol: "X",
-            style: "green",
+            name: gameSettings.player2Name,
+            symbol: gameSettings.selectedSymbol2,
+            style: gameSettings.selectedColor2
         }
     }
     const [shape, setShape] = useState(players.first)
 
-    console.log(square)
 
     return (
         <div className="gameboard-container">

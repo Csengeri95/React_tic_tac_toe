@@ -4,8 +4,8 @@ const purple = require('../assets/purple.png')
 const green = require('../assets/green.png')
 
 export const symbolData = [
-    { value: 'circle', label: 'Kör' },
-    { value: 'cross', label: 'Kereszt' },
+    { value: 'O', label: 'Kör' },
+    { value: 'X', label: 'Kereszt' },
 ]
 
 export const colorData = [
