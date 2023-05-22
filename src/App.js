@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home';
+import { MantineProvider } from '@mantine/core';
 
 const config = require('../package.json')
 
@@ -14,9 +15,11 @@ function App() {
 
 
   return (
-    <div className="app">
-      <Home />
-    </div>
+    <MantineProvider>
+      <div className="app">
+        <Home />
+      </div>
+    </MantineProvider>
   );
 }
 

@@ -1,6 +1,11 @@
 .home {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.home .new_game_button {
+    font-size: 18px !important;
 }
