@@ -19,7 +19,7 @@ export default function Content({ routes }) {
     return (
         <Routes location={location} key={location.pathname} >
             {routes.map((route, index) => (
-                <Route key={route.path} path={route.path} element={route.element} />
+                <Route key={index} path={route.path} element={route.element} />
             ))}
         </Routes>
     )

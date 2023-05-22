@@ -13,11 +13,11 @@ export default function ModalDiv({ open, setOpen }) {
     const navigate = useNavigate()
     const { gameSettings, setGameSettings } = useContext(GameSettingsContext)
 
-    const filteredSymbolData1 = symbolData.filter(a => a.value != gameSettings.selectedSymbol2)
-    const filteredSymbolData2 = symbolData.filter(a => a.value != gameSettings.selectedSymbol1)
+    const filteredSymbolData1 = symbolData.filter(a => a.value !== gameSettings.selectedSymbol2)
+    const filteredSymbolData2 = symbolData.filter(a => a.value !== gameSettings.selectedSymbol1)
 
-    const filteredColor1 = colorData.filter(a => a.value != gameSettings.selectedColor2)
-    const filteredColor2 = colorData.filter(a => a.value != gameSettings.selectedColor1)
+    const filteredColor1 = colorData.filter(a => a.value !== gameSettings.selectedColor2)
+    const filteredColor2 = colorData.filter(a => a.value !== gameSettings.selectedColor1)
 
     const SelectItem = React.forwardRef(({ image, label, description, ...others }, ref) => (
         <div ref={ref} {...others}>
@@ -43,7 +43,7 @@ export default function ModalDiv({ open, setOpen }) {
             player2Name: values.player2Name
         });
         setOpen(false)
-        navigate('/Game')
+        navigate('/game')
 
     }
 
@@ -88,7 +88,7 @@ export default function ModalDiv({ open, setOpen }) {
             >
 
                 <div className='description'>
-                    <p>A játék két szereplős, megkezdéséhez kötelező nevet, illetve szimbólumot kiválasztania (minden játékoshoz csupán egy szimbólum tartozhat)! Ha kívánja módosíthatja a kiválasztott szimbólum színét, illetve a pálya méretét (alapértelmezetten minden szimbólum fekete színű, illetve a pálya mérete 10X10-es háló).</p>
+                    <p>A játék két szereplős, megkezdéséhez kötelező nevet, illetve szimbólumot kiválasztania (minden játékoshoz csupán egy szimbólum tartozhat)! Ha kívánja módosíthatja a kiválasztott szimbólum színét, illetve a pálya méretét (alapértelmezetten minden szimbólum fekete színű, illetve a pálya mérete egy 10X10-es háló).</p>
                     <p>Jó játékot!</p>
                 </div>
 
@@ -133,6 +133,7 @@ export default function ModalDiv({ open, setOpen }) {
                                     itemComponent={SelectItem}
                                     data={filteredColor1}
                                     onChange={(value) => setGameSettings({ ...gameSettings, selectedColor1: value })}
+                                    
                                 />
                             </Form.Item>
                         </div>

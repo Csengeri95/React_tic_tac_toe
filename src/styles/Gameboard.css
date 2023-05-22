@@ -7,9 +7,21 @@
 
 .gameboard {
     display: grid;
-    width: 500px;
-    height: 500px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.gameboard.grid_10x10 {
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    border: 1px solid #000000;
+    height: 500px;
+    width: 500px;
+}
+
+.gameboard.grid_8x8 {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height:400px;
+    width: 400px;
+
 }

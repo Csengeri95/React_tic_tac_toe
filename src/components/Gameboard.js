@@ -4,11 +4,11 @@ import Square from "./Square"
 import { GameSettingsContext } from "../contexts/GameSettingsContexts"
 
 export default function Gameboard() {
+    const { gameSettings } = useContext(GameSettingsContext)
 
-    const [square, setSquare] = useState(Array(100).fill(""))
+    const [square, setSquare] = useState(Array(gameSettings.selectedBoardSize).fill(""))
     //const [shape, setShape] = useState("O")
 
-    const { gameSettings } = useContext(GameSettingsContext)
 
     const players = {
         first: {
@@ -27,7 +27,7 @@ export default function Gameboard() {
 
     return (
         <div className="gameboard-container">
-            <div className="gameboard">
+            <div className={`gameboard ${gameSettings.selectedBoardSize===100? 'grid_10x10':'grid_8x8'}`}>
                 {square.map((map, index) =>
                     <Square
                         key={index}
@@ -42,6 +42,7 @@ export default function Gameboard() {
 
 
             </div>
+
             <p>{shape.name} következik</p>
         </div>
     )

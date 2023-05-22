@@ -16,6 +16,8 @@ export default function Home() {
                 src={Logo}
                 title="Logo"
                 alt="Logo"
+                width="300px"
+
             />
             <Button
                 className="new_game_button"

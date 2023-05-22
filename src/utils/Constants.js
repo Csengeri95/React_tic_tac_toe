@@ -1,7 +1,7 @@
 const red = require('../assets/red.png')
 const blue = require('../assets/blue.png')
 const purple = require('../assets/purple.png')
-const green = require('../assets/green.png')
+const brown = require('../assets/brown.png')
 
 export const symbolData = [
     { value: 'O', label: 'Kör' },
@@ -27,14 +27,15 @@ export const colorData = [
         value: '#8B008B',
     },
     {
-        image: green,
-        label: 'Zöld',
-        value: '#32CD32',
+        image: brown,
+        label: 'Barna',
+        value: '#8b4513',
+
 
     },
 ]
 
 export const boardSizeOptions = [
     { value: 100, label: '10 x 10' },
-    { value: 80, label: '8 x 8' }
+    { value: 64, label: '8 x 8' }
 ]
