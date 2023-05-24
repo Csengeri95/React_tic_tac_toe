@@ -21,7 +21,21 @@
 .gameboard.grid_8x8 {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    height:400px;
+    height: 400px;
     width: 400px;
 
+}
+
+.gameboard-container p {
+    font-size: 1.4rem;
+}
+
+.gameboard-container .next {
+     color: #E49B0F; 
+    font-weight: 700;
+    font-size: 1.6;
+}
+
+.gameboard-container .re_match {
+    color:#fff !important;
 }

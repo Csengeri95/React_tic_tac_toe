@@ -2,13 +2,27 @@ import { useEffect, useState } from "react"
 import "../styles/Square.css"
 
 
-export default function Square({ id, players, shape, setShape, setSquare, square }) {
+export default function Square({ id, players, shape, setShape, setSquare, square, winner, gameReset, setGameReset }) {
+
+
+    useEffect(() => {
+        if (gameReset) {
+            const squares = document.getElementsByClassName("cell");
+            Array.from(squares).forEach(square => {
+                square.textContent = "";
+            });
+        }
+        setGameReset(false)
+    }, [gameReset])
+
 
 
     function handleClick(e) {
         const reserved = e.target.firstChild.textContent.includes(players.first.symbol) || e.target.firstChild.textContent.includes(players.second.symbol)
 
-
+        if (winner) {
+            return
+        }
 
         if (!reserved) {
 
@@ -28,25 +42,27 @@ export default function Square({ id, players, shape, setShape, setSquare, square
             }
         }
 
+
+
     }
 
 
 
 
-    function handleColor(style) {
+    function handleColor(symbol) {
 
         let symbolColor = "";
 
-        if (style === players.first.symbol) {
+        if (symbol === players.first.symbol) {
             symbolColor = players.first.style;
-        } else if (style === players.second.symbol) {
+        } else if (symbol === players.second.symbol) {
             symbolColor = players.second.style;
         }
 
         const newSquare = square.map((map, index) => {
             if (index === id) {
                 return {
-                    style,
+                    symbol,
                     symbolColor
                 }
             }

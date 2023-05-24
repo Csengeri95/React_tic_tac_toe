@@ -17,14 +17,14 @@ function App() {
   }, [])
 
   const pages = [
-     { name: 'home', path: '/home', element: <Home /> },
-     { name: 'game', path: '/game', element: <Game /> },
-    
+    //  { name: 'home', path: '/home', element: <Home /> },
+    { name: 'game', path: '/game', element: <Game /> },
+
   ]
 
 
 
-  //console.log(gameSettings)
+  console.log(gameSettings)
   return (
     <GameSettingsContext.Provider value={{ gameSettings, setGameSettings }} >
       <MantineProvider>

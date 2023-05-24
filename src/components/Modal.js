@@ -2,7 +2,7 @@ import { Button, Modal, Select, Form, Input } from 'antd'
 import { Select as MantineSelect, Text, Avatar, Group } from '@mantine/core'
 import "../styles/Modal.css"
 import { symbolData, colorData, boardSizeOptions } from '../utils/Constants'
-import React, { useState, useRef, useContext } from 'react'
+import React, { useRef, useContext } from 'react'
 import { GameSettingsContext } from '../contexts/GameSettingsContexts'
 import { useNavigate } from 'react-router-dom'
 
