@@ -6,14 +6,13 @@ import ConfettiExplosion from 'react-confetti-explosion';
 import { Button, Box, Flex } from '@mantine/core'
 import { IconArrowBackUp, IconTicTac } from '@tabler/icons-react';
 import { useNavigate } from "react-router-dom";
+import { winningCombos100, winningCombos64 } from "../utils/WinningCombos";
 
 
 export default function Gameboard() {
     const { gameSettings, setGameSettings } = useContext(GameSettingsContext)
 
     const [square, setSquare] = useState(Array(gameSettings.selectedBoardSize).fill(""))
-    //const [square, setSquare] = useState(Array(100).fill(""))
-    //const [shape, setShape] = useState("O")
 
 
     const players = {
@@ -29,18 +28,6 @@ export default function Gameboard() {
         }
     }
 
-    // const players = {
-    //     first: {
-    //         name: "Anna",
-    //         symbol: "O",
-    //         style: "red"
-    //     },
-    //     second: {
-    //         name: "Levente",
-    //         symbol: "X",
-    //         style: "green"
-    //     }
-    // }
     const [shape, setShape] = useState(players.first)
     const [winner, setWinner] = useState(null)
     const [isExploiding, setIsExploiding] = useState(false)
@@ -65,60 +52,15 @@ export default function Gameboard() {
 
     function checkWinner() {
 
-        let winningCombos = []
+        let winningCombos;
 
         if (gameSettings.selectedBoardSize === 100) {
-            for (let row = 0; row <= 9; row++) {
-                for (let col = 0; col <= 5; col++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => row * 10 + col + i));
-                }
-            }
 
-            for (let col = 0; col <= 9; col++) {
-                for (let row = 0; row <= 5; row++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => (row + i) * 10 + col))
-                }
-            }
-
-            for (let row = 0; row <= 5; row++) {
-                for (let col = 0; col <= 5; col++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => (row + i) * 10 + col + i));
-                }
-            }
-
-            for (let row = 9; row >= 4; row--) {
-                for (let col = 0; col <= 5; col++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => (row - i) * 10 + col + i));
-                }
-            }
+            winningCombos = winningCombos100();
         }
         else if (gameSettings.selectedBoardSize === 64) {
-            for (let row = 0; row <= 7; row++) {
-                for (let col = 0; col <= 3; col++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => row * 8 + col + i));
-                }
-            }
 
-
-            for (let col = 0; col <= 7; col++) {
-                for (let row = 0; row <= 3; row++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => (row + i) * 8 + col));
-                }
-            }
-
-            for (let row = 0; row <= 3; row++) {
-                for (let col = 0; col <= 3; col++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => (row + i) * 8 + col + i));
-                }
-            }
-
-
-            for (let row = 7; row >= 4; row--) {
-                for (let col = 0; col <= 3; col++) {
-                    winningCombos.push(Array.from({ length: 5 }, (_, i) => (row - i) * 8 + col + i));
-                }
-            }
-
+            winningCombos = winningCombos64();
         }
 
         winningCombos.forEach(a => {
@@ -135,9 +77,6 @@ export default function Gameboard() {
 
             }
         })
-
-
-
     }
 
 
@@ -152,7 +91,7 @@ export default function Gameboard() {
         <div className="gameboard-container">
             {winner && isExploiding &&
                 <div style={{ marginBottom: '1rem' }}>
-                    <p style={{ fontSize: '1.8rem' }}> <span >{winner}</span> a győztes!</p>
+                    <p style={{ fontSize: '1.8rem', color: '#198754' }}> <span >{winner}</span> a győztes!</p>
                     <ConfettiExplosion
                         force={0.5}
                         duration={2200}

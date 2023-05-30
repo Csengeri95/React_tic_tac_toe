@@ -1,40 +1,53 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Home from './pages/Home';
-import Game from './pages/Game'
 import { MantineProvider } from '@mantine/core';
 import { GameSettingsContext, GameSettingsContextDefaults } from './contexts/GameSettingsContexts'
 import { BrowserRouter as Router } from 'react-router-dom';
 import Content from './components/Content';
+import { UserContext, UserContextDefaults } from './contexts/UserContext';
+import { pages } from './utils/Constants';
 const config = require('../package.json')
 
 function App() {
 
   const [gameSettings, setGameSettings] = useState(GameSettingsContextDefaults.value)
+  const [user, setUser] = useState(UserContextDefaults.value)
+  const [initialized, setInitialized] = useState(false)
 
   useEffect(() => {
     document.title = config.title
   }, [])
 
-  const pages = [
-    //  { name: 'home', path: '/home', element: <Home /> },
-    { name: 'game', path: '/game', element: <Game /> },
 
-  ]
+  useEffect(() => {
+    if (localStorage.getItem('tic_tac_toe') !== null) {
+      setUser(JSON.parse(localStorage.getItem('tic_tac_toe')))
+    }
+    setInitialized(true)
+  }, [])
+
+  useEffect(() => {
+    if (initialized) {
+      localStorage.setItem('tic_tac_toe', JSON.stringify(user))
+    }
+  })
 
 
 
-  console.log(gameSettings)
+  //console.log(gameSettings)
+  console.log(user)
   return (
-    <GameSettingsContext.Provider value={{ gameSettings, setGameSettings }} >
-      <MantineProvider>
-        <div className="app">
-          <Router>
-            <Content routes={pages} />
-          </Router>
-        </div>
-      </MantineProvider>
-    </GameSettingsContext.Provider>
+    <UserContext.Provider value={{ user, setUser }} >
+      <GameSettingsContext.Provider value={{ gameSettings, setGameSettings }} >
+        <MantineProvider>
+          <div className="app">
+            <Router>
+              <Content routes={pages} />
+            </Router>
+          </div>
+        </MantineProvider>
+      </GameSettingsContext.Provider>
+    </UserContext.Provider>
   );
 }
 

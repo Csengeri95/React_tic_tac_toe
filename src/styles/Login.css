@@ -1,0 +1,18 @@
+.login {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login_form {
+    background-color: #D3D3D3;
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.58);
+}
+
+.custom-label {
+    font-weight: 500;
+}

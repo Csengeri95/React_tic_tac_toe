@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export const GameSettingsContextDefaults = {
     value: {
         player1Name: undefined,

@@ -36,7 +36,7 @@ export default function ModalDiv({ open, setOpen }) {
 
 
     function onFinish(values) {
-        // console.log(values)
+        
         setGameSettings({
             ...gameSettings,
             player1Name: values.player1Name,

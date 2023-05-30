@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import "../styles/Square.css"
 
 
@@ -13,7 +13,7 @@ export default function Square({ id, players, shape, setShape, setSquare, square
             });
         }
         setGameReset(false)
-    }, [gameReset])
+    }, [gameReset, setGameReset])
 
 
 

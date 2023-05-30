@@ -1,5 +1,4 @@
 import Gameboard from "../components/Gameboard"
-import { GameSettingsContext } from "../contexts/GameSettingsContexts"
 import "../styles/Game.css"
 import Logo from '../assets/logo-removebg.png'
 export default function Game() {

@@ -1,3 +1,7 @@
+import Game from '../pages/Game'
+import Home from '../pages/Home'
+import Login from '../pages/Login'
+
 const red = require('../assets/red.png')
 const blue = require('../assets/blue.png')
 const purple = require('../assets/purple.png')
@@ -38,4 +42,10 @@ export const colorData = [
 export const boardSizeOptions = [
     { value: 100, label: '10 x 10' },
     { value: 64, label: '8 x 8' }
+]
+
+export const pages=[
+    { name: 'login', path: '/', element: <Login /> },
+    { name: 'home', path: '/home', element: <Home /> },
+    { name: 'game', path: '/game', element: <Game /> },
 ]
