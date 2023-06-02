@@ -2,8 +2,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-}
 
+}
 
 .gameboard {
     display: grid;
@@ -31,11 +31,11 @@
 }
 
 .gameboard-container .next {
-     color: #E49B0F; 
+    color: #E49B0F;
     font-weight: 700;
     font-size: 1.6;
 }
 
 .gameboard-container .re_match {
-    color:#fff !important;
+    color: #fff !important;
 }

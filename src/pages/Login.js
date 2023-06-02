@@ -78,8 +78,7 @@ export default function Login() {
 
                     <Form.Item
                         wrapperCol={{
-                            offset: 8,
-                            span: 16,
+                            offset: 7,
                         }}
                     >
                         <Button

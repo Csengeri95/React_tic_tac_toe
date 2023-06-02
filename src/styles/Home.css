@@ -4,6 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to right bottom, #51d0de, #00ddd0, #00e6ac, #3aeb73, #32de84);
+
 }
 
 .home .new_game_button {

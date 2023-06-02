@@ -50,39 +50,38 @@ export default function Gameboard() {
     }
 
 
-    function checkWinner() {
-
-        let winningCombos;
-
-        if (gameSettings.selectedBoardSize === 100) {
-
-            winningCombos = winningCombos100();
-        }
-        else if (gameSettings.selectedBoardSize === 64) {
-
-            winningCombos = winningCombos64();
-        }
-
-        winningCombos.forEach(a => {
-            let firstWins = a.every(element => square[element].symbol === players.first.symbol)
-            let secondWins = a.every(element => square[element].symbol === players.second.symbol)
-
-            if (firstWins) {
-                setWinner(players.first.name)
-                setIsExploiding(true)
-            }
-            if (secondWins) {
-                setWinner(players.second.name)
-                setIsExploiding(true)
-
-            }
-        })
-    }
-
-
     useEffect(() => {
+        function checkWinner() {
+
+            let winningCombos;
+
+            if (gameSettings.selectedBoardSize === 100) {
+
+                winningCombos = winningCombos100();
+            }
+            else if (gameSettings.selectedBoardSize === 64) {
+
+                winningCombos = winningCombos64();
+            }
+
+            winningCombos.forEach(a => {
+                let firstWins = a.every(element => square[element].symbol === players.first.symbol)
+                let secondWins = a.every(element => square[element].symbol === players.second.symbol)
+
+                if (firstWins) {
+                    setWinner(players.first.name)
+                    setIsExploiding(true)
+                }
+                if (secondWins) {
+                    setWinner(players.second.name)
+                    setIsExploiding(true)
+
+                }
+            })
+        }
+
         checkWinner()
-    }, [square])
+    }, [square, gameSettings.selectedBoardSize, players.first.name, players.first.symbol, players.second.name, players.second.symbol])
 
 
 
@@ -91,7 +90,7 @@ export default function Gameboard() {
         <div className="gameboard-container">
             {winner && isExploiding &&
                 <div style={{ marginBottom: '1rem' }}>
-                    <p style={{ fontSize: '1.8rem', color: '#198754' }}> <span >{winner}</span> a győztes!</p>
+                    <p style={{ fontSize: '1.5rem', color: '#FFFFFF' }}> <span >{winner}</span> a győztes! &#128522;</p>
                     <ConfettiExplosion
                         force={0.5}
                         duration={2200}

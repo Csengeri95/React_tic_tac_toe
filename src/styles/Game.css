@@ -1,8 +1,10 @@
 .game {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 110vh;
-    background-color: #51d0de;
+    height: 105vh;
+    background: radial-gradient(circle, rgba(124,185,232,1) 0%, rgba(0,45,98,1) 80%);}
+
+.game img {
+    margin-top: 0.2rem;
 }

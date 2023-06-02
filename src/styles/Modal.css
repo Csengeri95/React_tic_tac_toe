@@ -11,16 +11,13 @@
     font-size: 1rem;
 }
 
-.description {
-    text-align: center;
-}
-
-.description p:nth-child(1) {
+.description p {
     text-align: justify;
     font-size: 1rem;
 }
 
-.description p:nth-child(2) {
+.description p:nth-child(3) {
+    text-align: center;
     color: #E49B0F;
     font-weight: 600;
     font-size: 1.2rem;

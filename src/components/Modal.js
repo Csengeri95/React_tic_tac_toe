@@ -36,7 +36,7 @@ export default function ModalDiv({ open, setOpen }) {
 
 
     function onFinish(values) {
-        
+
         setGameSettings({
             ...gameSettings,
             player1Name: values.player1Name,
@@ -89,6 +89,7 @@ export default function ModalDiv({ open, setOpen }) {
 
                 <div className='description'>
                     <p>A játék két szereplős, megkezdéséhez kötelező nevet, illetve szimbólumot kiválasztania (minden játékoshoz csupán egy szimbólum tartozhat)! Ha kívánja módosíthatja a kiválasztott szimbólum színét, illetve a pálya méretét (alapértelmezetten minden szimbólum fekete színű, illetve a pálya mérete egy 10X10-es háló).</p>
+                    <p>Akinek először összejön egymás mellett vízszintesen, függőlegesen vagy átlósan 5 jel, az győzött.</p>
                     <p>Jó játékot!</p>
                 </div>
 
@@ -133,7 +134,7 @@ export default function ModalDiv({ open, setOpen }) {
                                     itemComponent={SelectItem}
                                     data={filteredColor1}
                                     onChange={(value) => setGameSettings({ ...gameSettings, selectedColor1: value })}
-                                    
+
                                 />
                             </Form.Item>
                         </div>
