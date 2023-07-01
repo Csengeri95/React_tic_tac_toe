@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { MantineProvider } from '@mantine/core';
 import { GameSettingsContext, GameSettingsContextDefaults } from './contexts/GameSettingsContexts'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import Content from './components/Content';
 import { UserContext, UserContextDefaults } from './contexts/UserContext';
 import { pages } from './utils/Constants';
