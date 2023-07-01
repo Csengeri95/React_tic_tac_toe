@@ -1,6 +1,14 @@
-Amőba játék
+Tic-Tac-Toe game
 
-A fenti kód egy React app, amely egy amőba alkalmazást működtet. Az alkalmazás három oldalból áll, melyet a react-router-dom kezel. Az első oldal egy login felület, melyen bejelentkezve tudunk tovább kerülni a játék elindítása felületre. A felhasználó adatait a localStorage-be menti az alkalmazás. Az új játék felületen egy gombot megnyomva, egy felugró modal segítségével tudjuk megadni a játék alapvető beállításait (játékos nevek, szimbólumok, színek és a háló mérete). Ezt végrehajtva jutunk el a játék oldalára. Az alkalmazás kezeli, hogy ki az aktuális lépő, ha valamelyik játékos győz, az alkalmazás kiírja a nyertes nevét, illetve engedi az újrakezdést, illetve a visszalépést az előző oldalra.
+The above code is a React app that runs an tic-tac-toe application. The application consists of three pages, handled by the react-router-dom. The first page is a login interface, where you can log in to be taken to the launch game interface. The application saves the user's data to localStorage. In the new game interface, we can press a button and a popup modal will allow us to enter the basic game settings (player names, symbols, colors and mesh size). Doing this will take us to the game page. The application manages who the current player is, if one of the players wins, the application displays the name of the winner and allows you to start over or go back to the previous page.
 
-A választásom, azért esett a React keretrendszerre, mivel az általam elképzelt alkalmazás felépítését véleményem szerint ezzel tudtam a legkönnyebben megvalósítani.
-Az alkalmazás az npm csomag letöltése után az 'npm start' paranccsal indul.
+I chose the React framework, because I think it was the easiest way to implement the architecture of the application I envisioned.
+The application starts with the command 'npm start' after downloading the npm package.
+
+Github Pages: https://csengeri95.github.io/React_tic_tac_toe/
+
+Main packages i used:
+- antd
+- react-router-dom
+- react-confetti-explosion
+- mantine
